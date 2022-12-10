@@ -5,12 +5,14 @@ u lokalni virutelni environment: https://pip.pypa.io/en/stable/installation/
 
 Kreiranje lokalnog virtual environment-a je pozeljno da uradite u ovom projektu (pozicionirati se u prevucen projekat). Kreiranje i aktivacija:
 
-- Linux i MacOS:
-  virtualenv test_env
-  source test_env/bin/activate
-- Windows:
-  virtualenv test_env
-  test_env\Scripts\activate
+Linux i MacOS:
+virtualenv test_env
+source test_env/bin/activate
+
+Windows:
+virtualenv test_env
+test_env\Scripts\activate -> Ako koristite cmd
+source test_env\Scripts\activate -> Ako koristite git bash
 
 Kada ste aktivirali virtual environment, potrebno je instalirati sledece biblioteke:
 
