@@ -7,7 +7,7 @@ from .server_port import PORT
 
 
 def load_json_from_file(file_path):
-    f = open(file_path)
+    f = open(file_path, encoding='utf-8')
     data = json.load(f)
     f.close()
     return data

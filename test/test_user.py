@@ -7,7 +7,7 @@ from .server_port import PORT
 
 
 def load_json_from_file(file_path):
-    f = open(file_path)
+    f = open(file_path, encoding='utf-8')
     data = json.load(f)
     f.close()
     return data
@@ -82,8 +82,12 @@ class UserTest(unittest.TestCase):
         self.assertEqual(ddiff.get('dictionary_item_removed', None), None)
 
     def test_get_api_user_id_note(self):
+        query_params = {
+            'page': 1,
+            'size': 10,
+        }
         response_data = load_json_from_file('response_bodies/get_api_user_id_note_response_body.json')
-        response = send_get_request(url=f'{self.base_path}/1/note')
+        response = send_get_request(url=f'{self.base_path}/1/note', query_params=query_params)
         self.assertEqual(response.status_code, 200)
         ddiff = DeepDiff(response_data, response.json())
         self.assertEqual(ddiff.get('dictionary_item_removed', None), None)

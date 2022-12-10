@@ -36,4 +36,13 @@ U folder-u response_bodies se nalaze json-i za povratne vrednosti svih endpoint-
 
 Vrednosti u navedenim folderima su uzete spram poslednje verzije OpenAPI specifikacije (1.1.11)
 
-Testovi funkcionisu tako sto proveravaju status odgovora i STRUKTURU odgovora. Proveravanje STRUKTURE znaci da se samo proverava da li postoje svi atributi u odgovoru spram onoga sto
+Testovi funkcionisu tako sto salju zahtev sa odgovarajucim telom, url i query parametrima i nakon toga proveravaju status odgovora i STRUKTURU odgovora. Proveravanje STRUKTURE znaci da se samo proverava da li postoje svi atributi u odgovoru spram onoga sto se ocekuje iz OpenAPI specifikacije. Ako imate dodatnih atributa spram specifikacije, to je nije problem, poslednji assert ce padati samo ako neki atributi nedostaju.
+
+- Test vam moze puci iz 3 razloga:
+
+1. Spring ne moze da konvertuje telo zahteva u Objekat koji ste naveli kao parametar metode kontrolera
+2. Status odgovora nije dobar
+3. Struktura tela odgovora nije dobra
+
+Za ispitivanje strukture je koriscena deepdiff biblioteka cije dokumentacije se nalazi na sledecem linku:
+https://zepworks.com/deepdiff/current/diff.html
