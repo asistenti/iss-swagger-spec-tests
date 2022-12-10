@@ -80,7 +80,7 @@ class DriverTest(unittest.TestCase):
     def test_post_api_driver_id_vehicle(self):
         request_data = load_json_from_file('request_bodies/post_api_driver_id_vehicle_request_body.json')
         response_data = load_json_from_file('response_bodies/post_api_driver_id_vehicle_response_body.json')
-        response = send_put_request(data=request_data, url=f'{self.base_path}/1/vehicle')
+        response = send_post_request(data=request_data, url=f'{self.base_path}/1/vehicle')
         self.assertEqual(response.status_code, 200)
         ddiff = DeepDiff(response_data, response.json())
         self.assertEqual(ddiff.get('dictionary_item_removed', None), None)
