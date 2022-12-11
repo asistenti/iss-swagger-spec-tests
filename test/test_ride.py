@@ -63,14 +63,14 @@ class RideTest(unittest.TestCase):
         
     def test_put_api_ride_id_accept(self):
         response_data = load_json_from_file('response_bodies/put_api_ride_id_accept_response_body.json')
-        response = send_put_request(data=None, url=f'{self.base_path}/1/withdraw')
+        response = send_put_request(data=None, url=f'{self.base_path}/1/accept')
         self.assertEqual(response.status_code, 200)
         ddiff = DeepDiff(response_data, response.json())
         self.assertEqual(ddiff.get('dictionary_item_removed', None), None)
 
     def test_put_api_ride_id_end(self):
         response_data = load_json_from_file('response_bodies/put_api_ride_id_end_response_body.json')
-        response = send_put_request(data=None, url=f'{self.base_path}/1/withdraw')
+        response = send_put_request(data=None, url=f'{self.base_path}/1/end')
         self.assertEqual(response.status_code, 200)
         ddiff = DeepDiff(response_data, response.json())
         self.assertEqual(ddiff.get('dictionary_item_removed', None), None)
