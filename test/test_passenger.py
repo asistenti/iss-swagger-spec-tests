@@ -59,7 +59,7 @@ class PassengerTest(unittest.TestCase):
         query_params = {
             'page': 1,
             'size': 10,
-            'sort': 'firstName',
+            'sort': 'startTime',
             'from': '2017-07-21',
             'to': '2023-07-21'
         }
